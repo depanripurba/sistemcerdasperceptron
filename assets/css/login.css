@@ -1,0 +1,83 @@
+*{
+	font-family: helvetica,arial,sans-serif;
+}
+.login{
+	width: 420px;
+	margin: auto;
+	background: white;
+	text-align: center;
+	font-size: 18pt;
+	padding: 20px 10px;
+	color: #006CFF;
+	font-weight: bold;
+	border-radius: 5px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.input{
+	width: 350px;
+	margin: 7px 0;
+	padding: 15px 8px;
+	font-size: 12pt;
+	border-radius: 5px;
+	border: 1px solid #DAD9D9;
+	outline: none;
+}
+.input-error{
+	width: 350px;
+	margin: 7px 0;
+	padding: 15px 8px;
+	font-size: 12pt;
+	border-radius: 5px;
+	border: 1px solid red;
+	outline: none;
+}
+.input:focus{
+	outline: 1px solid #006CFF;
+}
+.error{
+	font-size: 10pt;
+	color: red;
+	font-weight: normal;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: left;
+	margin-left: 26px;
+}
+.btn_login{
+	width: 370px;
+	font-size: 14pt;
+	cursor: pointer;
+	padding: 10px 40px;
+	color: white;
+	background: #006CFF;
+	border-radius: 5px;
+	border: none;
+	margin-top: 10px;
+	box-shadow: none;
+	font-weight: bold;
+}
+.btn_create{
+	width: 270px;
+	font-size: 12pt;
+	cursor: pointer;
+	padding: 10px 40px;
+	color: white;
+	background: #0CD21A;
+	border-radius: 5px;
+	border: none;
+	box-shadow: none;
+	font-weight: bold;
+	}
+.garis{
+	width: 300px;
+	margin-bottom: 20px;
+	border-top:  #E8E5E5;
+	border-bottom: 1px solid #E8E5E5;
+	box-shadow: none;
+}
+.user-icon{
+	width: 100px;
+}
+body{
+	background: #E6F6F2
+}
