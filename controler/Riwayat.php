@@ -7,7 +7,7 @@ class Riwayat extends Purbacontroler{
     }
     public function index(){
         $data = [
-            "menuAktif"=>"RIWAYAT DIAGNOSA",
+            "menuAktif"=>"Riwayat",
             "title"=>"Riwayat Diagnosa",
             "y"=>["admin"=>"300%","user"=>"200%"]
         ];

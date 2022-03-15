@@ -5,7 +5,7 @@ require_once "core/Purbamodel.php";
 require_once "core/functions.php";
 
 
-class Depanri{
+class Purba{
 	public $method = "index";
 	public $controler = "home";
 	public function __construct(){
@@ -21,8 +21,16 @@ class Depanri{
 				$this->method = $this->ambilurl()[1];
 			}
 		}
+		$var1 = "";
+		$var2 = "";
+		if(isset($this->ambilurl()[2])){
+			$var1 = $this->ambilurl()[2];
+		}
+		if(isset($this->ambilurl()[3])){
+			$var2 = $this->ambilurl()[3];
+		}
 		$method = $this->method;
-		$controler->$method();
+		$controler->$method($var1,$var2);
 	}
 
 	public function ambilurl(){
@@ -34,7 +42,7 @@ class Depanri{
 }
 
 
-$depan = new Depanri();
+$depanri = new Purba();
 
 
 ?>

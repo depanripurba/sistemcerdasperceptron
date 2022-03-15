@@ -1,0 +1,19 @@
+catatan penting adalah sebagai berikut :
+ = untuk id kerusakan kita
+ = untuk tampilan view kita tetap membutuhkan field target
+ = namun untuk field di db kita tidak memerlukan itu, sehingga kita bisa hapus 
+ = jadi pada halaman data pelatihan akan ditambahkan ajax untuk melakukan data query untuk sementarat 
+ = sementara untuk halaman detail akan menampilkan data yang tercentang saja 
+ = lalu akan disediakan tombol edit data, ketika tombol edit data di klik akan memunculkan semua list data yang dibutuhkan oleh sistem
+
+ = tombol kembali pada halaman edit data kerusakan harus ditambahkan
+ = penyesuaian warna tombol dan warna tabel agar terlihat lebih bagus
+ = penyesuaian tombol sesuai dengan data kerusakan, hanya data kerusakan yang bersangkutan yang dapat melakukan hapus dan update data, yang lain hanya bisa detail saja, untuk update dan delete tidak bisa dilakukan
+ = tidak usah menggunakan ajax, karena banyak konfigurasi yang harus dilakukan
+ 
+ = memperbaiki struktur tabel pada database sistem cerdas perceptron 
+
+ CATATATAN
+ - menampilkan data secara keseluruhan maupun single tasknya sudah selesai
+ = memfungsikan tombol proses pelatihan data
+ - 

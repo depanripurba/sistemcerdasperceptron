@@ -88,7 +88,7 @@ class Usermodel extends Purbamodel{
 				}else{
 					if(password_verify($data['password'], $datadb['password'])){
 						session_start();
-						$menu = ["DASHBOARD","DIAGNOSA","RIWAYAT DIAGNOSA"];
+						$menu = ["Dashboard","Diagnosa","Riwayat"];
 						$_SESSION['login'] = ["hak"=>"user","username"=>$datadb['username'],"email"=>$datadb['email'],"menu"=>$menu];
 						header("location:".BASE_URL,true,301);
 					}else{
@@ -100,7 +100,7 @@ class Usermodel extends Purbamodel{
 			}else{
 				if(password_verify($data['password'], $datafetchadmin['password'])){
 					session_start();
-					$menu = ["DASHBOARD","PELATIHAN","DIAGNOSA","RIWAYAT DIAGNOSA"];
+					$menu = ["Dashboard","Pelatihan","Diagnosa","Riwayat"];
 					$_SESSION['login'] = ["hak"=>"admin","username"=>$datafetchadmin['username'],"email"=>$datafetchadmin['email'],"menu"=>$menu];
 					header("location:".BASE_URL,true,301);
 				}else{

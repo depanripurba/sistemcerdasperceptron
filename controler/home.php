@@ -6,7 +6,7 @@
 		}
 		public function index(){
 			$data = [
-				"menuAktif"=>"DASHBOARD",
+				"menuAktif"=>"Dashboard",
 				"title"=>"Halaman Dashboard",
 				"y"=>["admin"=>"0%","user"=>"0%"]
 			];

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<?php 
-	session_start();
+	// session_start();
 	$email = isset($_SESSION["login_error"])?$_SESSION["login_error"]["email"]:null;
 	$classemail = isset($_SESSION["login_error"]["emaill"])?"input-error":"input";
 	$classpas = isset($_SESSION["login_error"]["pass"])?"input-error":"input";

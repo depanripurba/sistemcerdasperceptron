@@ -17,7 +17,30 @@ function Ceklogin(){
 	}
 }
 
+//function inti di dalam perceptron
+	function prosesLatih($kode,$data){
+		//merubah target menjadi 1 atau -1
+		$databaru = [];
+		foreach($data as $item){
+			$t = $item['kodeKerusakan']==$kode?1:-1;
+			$item['T'] = $t;
+			$databaru[]=$item;
+		}
+		echo "ini adalah proses pelatihan data";
+		echo "<br/>";
+		$xw = [];
+		$bias =0;
+		
+		//deklarasi bobot awal
+		for($i = 1;$i<=32;$i++){
+			$bobot['w'.$i] = 0;
+		}
+		for($i=1;$i<=32;$i++){
+			echo "Ini adalah bobot X$i ".$bobot['w'.$i];
+			echo "<br/>";
+		}
 
+		
+	}
 
-
-?>
+//akhir fungsi dari sistem perceptron

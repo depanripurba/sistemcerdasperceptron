@@ -1,27 +1,31 @@
-<?php 
+<?php
 require_once "model/Usermodel.php";
-class Login extends Purbacontroler{
-	public function index(){
-		$this->tampil("login","");
-		if(isset($_POST['submit'])){
-			echo "data dari form berhasil diambil";
+class Login extends Purbacontroler
+{
+	public function __construct()
+	{
+		session_start();
+	}
+	public function index()
+	{
+		if (isset($_SESSION['login'])) {
+			header('location:' . BASE_URL);
+		} else {
+			$this->tampil("login", "");
 		}
 	}
-	public function ceklogin(){
-		if(isset($_POST)){
+	public function ceklogin()
+	{
+		if (isset($_POST)) {
 			$usermodel = new Usermodel();
 			$usermodel->validate($_POST);
-		}else{
-			
+		} else {
 		}
-		
 	}
-	public function logout(){
-		session_start();
-		session_destroy();
-		header("location:".BASE_URL,true,301);
 
+	public function keluar()
+	{
+		session_destroy();
+		header('location:' . BASE_URL);
 	}
 }
-
-?>
