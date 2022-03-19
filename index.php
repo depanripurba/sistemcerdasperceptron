@@ -9,7 +9,6 @@ class Purba{
 	public $method = "index";
 	public $controler = "home";
 	public function __construct(){
-
 		if(file_exists("controler/".$this->ambilurl()[0].".php")){
 			$this->controler = $this->ambilurl()[0];
 		}
@@ -36,6 +35,8 @@ class Purba{
 	public function ambilurl(){
 		if(isset($_GET["url"])){
 			return explode("/", $_GET["url"]);
+		}else{
+			return ["null"];
 		}
 	}
 }

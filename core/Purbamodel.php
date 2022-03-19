@@ -1,6 +1,6 @@
 <?php 
 class Purbamodel{
-	public $dbserver = "localhost:99";
+	public $dbserver = "localhost";
 	public $dbuser = "root";
 	public $dbpass = "root";
 	public $dbname = "scperceptron";
