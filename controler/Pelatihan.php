@@ -2,6 +2,7 @@
 require_once "model/Kerusakanmodel.php";
 require_once "model/Gejalamodel.php";
 require_once "model/Pelatihanmodel.php";
+require_once "model/Bobotmodel.php";
 class Pelatihan extends Purbacontroler
 {
     public function __construct()
@@ -13,6 +14,8 @@ class Pelatihan extends Purbacontroler
     }
     public function index()
     {
+        $bobot = new Bobotmodel();
+        $recognice = $bobot->recod();
         $data = [
             "menuAktif" => "Pelatihan",
             "title" => "Halaman Pelatihan",
@@ -20,8 +23,12 @@ class Pelatihan extends Purbacontroler
         ];
         $kerusakan = new Kerusakanmodel();
         $datapel = $kerusakan->datapel();
+        $databody=[
+            "recognice"=>$recognice,
+            "datapel"=>$datapel
+        ];
         $this->tampil("template/header", $data);
-        $this->tampil("Pelatihan", $datapel);
+        $this->tampil("Pelatihan", $databody);
         $this->tampil("template/footer", "");
     }
     public function latih($params, $method)
@@ -42,7 +49,6 @@ class Pelatihan extends Purbacontroler
             $this->tampil("tambahdatalatih", $databody);
             $this->tampil("template/footer", "");
         } else {
-
             $pelatihan = new Pelatihanmodel();
             $kode = explode(" ", $params);
             if (isset($kode[1])) {
@@ -117,9 +123,10 @@ class Pelatihan extends Purbacontroler
     }
     public function prosesdata($kodeker)
     {
+        $bobot = new Bobotmodel();
         $pelatihan = new Pelatihanmodel();
         $datapel = $pelatihan->getwhere($kodeker, true);
-        prosesLatih($kodeker, $datapel);
+        prosesLatih($kodeker, $datapel, $bobot);
     }
 
     public function addlatihtodb()

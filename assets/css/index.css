@@ -9,6 +9,35 @@ body {
 .tabel-small table{
   font-size: 10pt;
 }
+.buat-solusi{
+  cursor: pointer;
+}
+.add{
+  cursor: pointer;
+}
+.solusi{
+  border-radius: 5px;
+  border: 1px solid black;
+  background: orange;
+  text-decoration: none;
+  color: white;
+  padding: 2px;
+  box-shadow: 1px 1px black;
+}
+.solusi:hover{
+  background: #9C6604;
+}
+.tidak-dikenali{
+  border-radius: 5px;
+  background: red;
+  color: white;
+}
+.dikenali{
+  border: 1px solid green;
+  background: green;
+  border-radius: 5px;
+  color: white;
+}
 .container-gejala{
   padding: 5px 7px;
   display: flex;
@@ -274,11 +303,16 @@ body {
 }
 .btn-latih{
   background: blue;
+  border: 1px solid black;
   font-size: 10pt;
   border-radius: 5px;
   color: white;
   text-decoration: none;
   padding: 3px 5px;
+  box-shadow: 1px 1px black;
+}
+.btn-latih:hover{
+  background: #0505A9;
 }
 .btn-hapus{
   background: red;
@@ -289,6 +323,9 @@ body {
   padding: 3px 5px;
   cursor: pointer;
 }
+.btn-hapus:hover{
+  background: #A90505;
+}
 .btn-edit{
   background: green;
   font-size: 10pt;
@@ -297,6 +334,9 @@ body {
   text-decoration: none;
   padding: 3px 5px;
   cursor: pointer;
+}
+.btn-edit:hover{
+  background: #035303;
 }
 .btn-tambah{
   cursor: pointer;

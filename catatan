@@ -16,4 +16,11 @@ catatan penting adalah sebagai berikut :
  CATATATAN
  - menampilkan data secara keseluruhan maupun single tasknya sudah selesai
  = memfungsikan tombol proses pelatihan data
- - 
+ - melakukan query konek ke db 
+
+ CATATAN UNTUK TANGGAL 16 MARET 2022
+ - Besok mengaktifkan menu diagnosa
+
+ CATATAN UNTUK TANGGAL 17 MARET 2022
+ - dalam tabel solusi diperlukan field kodesolusi
+ - di dalam halaman pelatihan kerusakan diperlukan tombol kelola solusi. Dimana ini nantinya akan menjadi patokan untuk hasil akhir dari sebuah program yang sedang kita bangun.

@@ -20,4 +20,3 @@ class Gejalamodel extends Purbamodel{
         return $hasilbaru;
     }
 }
-?>

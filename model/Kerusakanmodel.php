@@ -5,7 +5,6 @@ class Kerusakanmodel extends Purbamodel
     {
         $query = "INSERT INTO kerusakan VALUES('" . $data['kodeKerusakan'] . "','" . $data['kerusakan'] . "')";
         $hasil = $this->konek->query($query);
-        var_dump($hasil);
         if ($hasil) {
             header("location:" . BASE_URL . "pelatihan");
         } else {
@@ -21,7 +20,7 @@ class Kerusakanmodel extends Purbamodel
             $hasil[] = $datadb;
         }
         $bigkode = 0;
-        if($hasil!=null){
+        if ($hasil != null) {
             $hasillength = count($hasil);
             $bigkode = $hasil[$hasillength - 1]['kodeKerusakan'];
             $bigkode = substr($bigkode, 1) * 1;
@@ -60,7 +59,7 @@ class Kerusakanmodel extends Purbamodel
         $berhasil = $this->konek->query($query);
         var_dump($berhasil);
         if ($berhasil) {
-            header('location:' . BASE_URL . "/pelatihan");
+            header('location:' . BASE_URL . "pelatihan");
         } else {
             echo "data gagal di hapus";
         }
@@ -75,5 +74,15 @@ class Kerusakanmodel extends Purbamodel
         } else {
             echo "data gagal di edit";
         }
+    }
+
+    public function ambilkerusakan($kode)
+    {
+        $query = "SELECT namaKerusakan FROM kerusakan WHERE kodeKerusakan = '".$kode."'";
+        $namakerusakan = mysqli_fetch_assoc($this->konek->query($query));
+        if($namakerusakan==null){
+            $namakerusakan['namaKerusakan'] = 'tidak dikenali';
+        }
+        return $namakerusakan;
     }
 }

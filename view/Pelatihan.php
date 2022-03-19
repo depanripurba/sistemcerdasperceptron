@@ -19,16 +19,25 @@
 						<td>Aksi</td>
 					</tr>
 					<?php $number = 1; ?>
-					<?php foreach ($data['datapel'] as $item) : ?>
+					<?php foreach ($data['datapel']['datapel'] as $item) : ?>
+						<!-- //mengenali atau tidak -->
+						<?php
+						$isi = "<span class='tidak-dikenali'>tidak dikenali</span>";
+						foreach ($data['recognice'] as $value) {
+							if ($item['kodeKerusakan'] == $value['kodeKerusakan']) {
+								$isi = "<span class='dikenali'>dikenali</span>";
+							}
+						}
+						?>
 						<tr class="tabel-isi">
-							<td><?=$number?></td>
-							<td><?=$item['kodeKerusakan']?></td>
-							<td><?=$item['namaKerusakan']?></td>
-							<td>dikenali</td>
+							<td><?= $number ?></td>
+							<td><?= $item['kodeKerusakan'] ?></td>
+							<td><?= $item['namaKerusakan'] ?></td>
+							<td><?= $isi ?></td>
 							<td>32</td>
 							<td>32</td>
 							<td>0</td>
-							<td><a class="btn-latih" href="<?=BASE_URL?>pelatihan/latih/<?=$item['kodeKerusakan']?>">latih</a>&nbsp;<button class="btn-hapus" onclick="hapus({code:'<?=$item['kodeKerusakan']?>',url:'<?=BASE_URL?>pelatihan/hapus/<?=$item['kodeKerusakan']?>'})" >hapus</button>&nbsp;<button class="btn-edit" onclick="cek(['<?=$item['kodeKerusakan']?>','<?=$item['namaKerusakan']?>'])">edit</button></td>
+							<td><a class="btn-latih" href="<?= BASE_URL ?>pelatihan/latih/<?= $item['kodeKerusakan'] ?>">latih</a>&nbsp;<button class="btn-hapus" onclick="hapus({code:'<?= $item['kodeKerusakan'] ?>',url:'<?= BASE_URL ?>pelatihan/hapus/<?= $item['kodeKerusakan'] ?>'})">hapus</button>&nbsp;<button class="btn-edit" onclick="cek(['<?= $item['kodeKerusakan'] ?>','<?= $item['namaKerusakan'] ?>'])">edit</button>&nbsp;<a class="solusi" href="<?= BASE_URL ?>solusi/index/<?= $item['kodeKerusakan'] ?>">Kelola Solusi</a></td>
 						</tr>
 						<?php $number++; ?>
 					<?php endforeach ?>
@@ -46,8 +55,8 @@
 	<div id="child-content" class="content-alert-content">
 		<img id="close" class="close" src="<?= BASE_URL ?>assets/icons/close.svg" alt="">
 		<h4 class="title-form">Form tambah kerusakan</h4>
-		<input class="input" type="text" name="kodeKerusakan" value="<?=$data['autokodeker']?>" disabled>
-		<input type="hidden" name="kodeKerusakan" value="<?=$data['autokodeker']?>">
+		<input class="input" type="text" name="kodeKerusakan" value="<?= $data['datapel']['autokodeker'] ?>" disabled>
+		<input type="hidden" name="kodeKerusakan" value="<?= $data['datapel']['autokodeker'] ?>">
 		<input class="input" required type="text" name="kerusakan" placeholder="masukkan nama kerusakan baru">
 		<div class="tombol-container"><button name="submit" type="submit" class="btn-add">Tambah</button>&nbsp;<button name="cancel" type="reset" class="btn-cancel">Batal</button></div>
 	</div>
@@ -56,8 +65,8 @@
 <form action="<?= BASE_URL ?>pelatihan/edit" method="POST">
 	<div id="form-edit" class="content-alert-content">
 		<img id="closebutton" class="close" src="<?= BASE_URL ?>assets/icons/close.svg" alt="">
-		<h4 class="title-form">Form edit  kerusakan</h4>
-		<input id="kodekerusakan" class="input" type="text" name="kodeKerusakan" value=""  disabled>
+		<h4 class="title-form">Form edit kerusakan</h4>
+		<input id="kodekerusakan" class="input" type="text" name="kodeKerusakan" value="" disabled>
 		<input id="hidekodekerusakan" type="hidden" name="kodeKerusakan">
 		<input id="namekerusakan" class="input" required type="text" name="kerusakan" placeholder="masukkan nama kerusakan baru">
 		<div class="tombol-container"><button name="submit" type="submit" class="btn-add">edit</button></div>

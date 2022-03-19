@@ -24,8 +24,6 @@ class Pelatihanmodel extends Purbamodel
 
         public function updatetodb($data,$id)
         {
-            $indeks = "";
-            $values = "";
             $querypart = "";
             foreach($data as $key=>$item){
                 $querypart.=",`".$key."`='".$item."'";
@@ -46,7 +44,6 @@ class Pelatihanmodel extends Purbamodel
             $query = "SELECT * FROM datapelatihan WHERE `kodeKerusakan`='".$params[0]."'";
             $data = $this->konek->query($query);   
             $hasil = [];
-            $hasil1 = [];
             while($datadb = mysqli_fetch_assoc($data)){
                 $hasil[] = $datadb; 
             }

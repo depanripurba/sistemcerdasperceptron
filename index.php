@@ -36,7 +36,6 @@ class Purba{
 	public function ambilurl(){
 		if(isset($_GET["url"])){
 			return explode("/", $_GET["url"]);
-			die;
 		}
 	}
 }
