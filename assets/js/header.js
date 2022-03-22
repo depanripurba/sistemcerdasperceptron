@@ -1,3 +1,6 @@
+function tes(){
+    console.log('function ini dari header');
+}
 function cek(q){
     console.log(q[0]);
     const formedit = document.querySelector("#form-edit");
