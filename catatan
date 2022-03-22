@@ -24,3 +24,6 @@ catatan penting adalah sebagai berikut :
  CATATAN UNTUK TANGGAL 17 MARET 2022
  - dalam tabel solusi diperlukan field kodesolusi
  - di dalam halaman pelatihan kerusakan diperlukan tombol kelola solusi. Dimana ini nantinya akan menjadi patokan untuk hasil akhir dari sebuah program yang sedang kita bangun.
+
+
+ = saat bangun akan menghubungkan antara solusi ke halaman tampil solusi agar sesuai dengan skripsi yang sedang dirancang

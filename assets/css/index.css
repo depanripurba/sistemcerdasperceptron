@@ -6,8 +6,22 @@ body {
   margin: 0;
   padding: 0;
 }
+.shower{
+  display: block;
+}
+.hider{
+  display: none;
+}
 .tabel-small table{
   font-size: 10pt;
+}
+.root-solusi{
+  display: flex;
+  flex-direction: column;
+}
+.baris{
+  display: flex;
+  flex-direction: row;
 }
 .buat-solusi{
   cursor: pointer;

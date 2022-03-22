@@ -1,5 +1,5 @@
 <?php
-
+require_once "model/Solusimodel.php";
 class Solusi extends Purbacontroler
 {
 	public function __construct()
@@ -19,5 +19,16 @@ class Solusi extends Purbacontroler
 		$this->tampil("template/header", $data);
 		$this->tampil("Solusi", $kode);
 		$this->tampil("template/footer", "");
+	}
+	public function simpansolusi(){
+		$solusi = new Solusimodel();
+		$kode = $_POST['kode'];
+		unset($_POST['kode']);
+		$berhasil = $solusi->simpansolusi($_POST,$kode);
+		if($berhasil){
+			header("location:" . BASE_URL . "pelatihan");
+		}else{
+			echo "Gagal ditambahkan";
+		}
 	}
 }

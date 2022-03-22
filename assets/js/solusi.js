@@ -9,12 +9,17 @@ tombolsolusi.addEventListener('click', () => {
 	containersolusi.classList.replace('hider', 'shower');
 	console.log(containersolusi);
 	console.log(tomboltambah);
+	tombolsolusi.remove();
 })
 let number = 2;
-tomboltambah.addEventListener('click', () => {
+tomboltambah.addEventListener('click', (e) => {
+	e.preventDefault();
 	let newinput = document.createElement('div');
 	let span = document.createElement('span');
 	let input = document.createElement('textarea');
+	input.name = '2[]';
+	input.cols = 50;
+	input.rows = 4;
 	span.innerHTML = number;
 	newinput.appendChild(span);
 	newinput.appendChild(input);
@@ -23,8 +28,10 @@ tomboltambah.addEventListener('click', () => {
 	number++
 })
 
-tombolkurang.addEventListener('click',()=>{
-	console.log('hy my name is depanri purba');
+tombolkurang.addEventListener('click',(e)=>{
+	e.preventDefault();
+	root.removeChild(root.lastChild);
+	number--;
 })
 
 function purbajs(e, callback) {
