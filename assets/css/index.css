@@ -15,6 +15,20 @@ body {
 .tabel-small table{
   font-size: 10pt;
 }
+.solusi-notif{
+  background: red;
+  color: white;
+}
+.solusi-notif-true{
+  background: green;
+  color: white;
+}
+.hide{
+  display: none;
+}
+button{
+  cursor: pointer;
+}
 .root-solusi{
   display: flex;
   flex-direction: column;

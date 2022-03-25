@@ -14,7 +14,6 @@ class Pelatihanmodel extends Purbamodel
        //batas algoritma baru
         $query = "INSERT INTO `datapelatihan`(".$indeks.") VALUES(".$values.")";
             $hasil = $this->konek->query($query);
-            var_dump($hasil);
             if ($hasil) {
                 header("location:" . BASE_URL . "pelatihan/latih/".$data['kodeKerusakan']);
             } else {

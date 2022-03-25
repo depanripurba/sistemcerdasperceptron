@@ -27,7 +27,6 @@ function prosesLatih($kode, $data, $model)
 		$item['T'] = $t;
 		$databaru[] = $item;
 	}
-
 	$bias = 0;
 	$treshold = 0;
 	$learningrate = 1;
@@ -39,6 +38,7 @@ function prosesLatih($kode, $data, $model)
 		$bobot['w' . $i] = 0;
 	}
 	$berhenti = false;
+
 	while ($berhenti == false) {
 		$index = 0;
 		foreach ($databaru as $data) {
@@ -70,12 +70,14 @@ function prosesLatih($kode, $data, $model)
 		}
 		//pengecekan kecocokan
 		$kecocokan = 0;
+		// $panjangaray = count()
 		for ($i = 0; $i < count($youtaray); $i++) {
 			if ($youtaray[$i] == $targetarray[$i]) {
 				$kecocokan++;
 			}
 		}
-		if ($kecocokan == 15) {
+		
+		if ($kecocokan == count($youtaray)) {
 			$berhenti = true;
 		}
 		$perulangancount++;
@@ -93,10 +95,10 @@ function diagnosa($data)
 		$index = 1;
 		foreach ($data[1] as $value) {
 			$xw = $value * $item['w' . $index];
-			$sigma+=$xw;
+			$sigma += $xw;
 			$index++;
 		}
-		if($sigma>$treshold){
+		if ($sigma > $treshold) {
 			$kerusakan = $item['kodeKerusakan'];
 		}
 	}

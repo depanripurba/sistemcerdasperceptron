@@ -19,13 +19,6 @@
 							</div>
 						<?php endforeach ?>
 						<div class="container-gejala">
-							<label for="target" class="ltarget"><b>Target</b><label />
-								<select name="T" id="target" class="target">
-									<option value=1>Kerusakan <?= $data['kodeKerusakan'] ?></option>
-									<option value=-1>Bukan Kerusakan <?= $data['kodeKerusakan'] ?></option>
-								</select>
-						</div>
-						<div class="container-gejala">
 							<button class="btn-tambah" type="submit" name="submit">Tambahkan</button>
 						</div>
 					</form>

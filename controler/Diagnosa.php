@@ -31,5 +31,13 @@ class Diagnosa extends Purbacontroler
         $detailhasil = $detail->ambilkerusakan($hasil);
         var_dump($detailhasil) ;
         die;
+        $data = [
+            "menuAktif" => "Diagnosa",
+            "title" => "Hasil Diagnosa",
+            "y" => ["admin" => "200%", "user" => "100%"]
+        ];
+        $this->tampil("template/header", $data);
+        $this->tampil("hasildiagnosa", "");
+        $this->tampil("template/footer", "");
     }
 }

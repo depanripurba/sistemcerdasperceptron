@@ -15,10 +15,9 @@ class Bobotmodel extends Purbamodel
 			$stringbobotup .= ',' . $index . '=' . $item;
 		}
 		$stringbobotup = substr($stringbobotup, 1);
-		$update = "UPDATE pembobotan SET " . $stringbobotup . ",bias=" . $bias . " WHERE kodeKerusakan=" . $kode;
+		$update = "UPDATE pembobotan SET " . $stringbobotup . ",bias=" . $bias . " WHERE kodeKerusakan='" . $kode . "'";
 		$insert = "INSERT INTO pembobotan VALUES('" . $kode . "'" . $stringbobot . "," . $bias . ")";
 		$query = count($result) == 0 ? $insert : $update;
-
 		$hasil = $this->konek->query($query);
 		if ($hasil) {
 			header("location:" . BASE_URL . "pelatihan");
