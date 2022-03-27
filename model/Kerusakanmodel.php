@@ -14,6 +14,9 @@ class Kerusakanmodel extends Purbamodel
     public function datapel()
     {
         $query = "SELECT * FROM kerusakan";
+        $querytotaldatapel = "SELECT COUNT(*) as kode FROM datapelatihan";
+        $querytotaldatapel = $this->konek->query($querytotaldatapel);
+        $result = mysqli_fetch_assoc($querytotaldatapel);
         $data = $this->konek->query($query);
         $hasil = [];
         while ($datadb = mysqli_fetch_assoc($data)) {
@@ -49,13 +52,18 @@ class Kerusakanmodel extends Purbamodel
         }
         $databody = [
             "autokodeker" => $KODEKER,
-            "datapel" => $hasil
+            "datapel" => $hasil,
+            "totaldata"=>$result['kode']
         ];
         return $databody;
     }
     public function hapus($id)
     {
         $query = "DELETE FROM `kerusakan` WHERE kodeKerusakan='" . $id . "'";
+        $query1 = "DELETE FROM `pembobotan` WHERE kodeKerusakan='" . $id . "'";
+        $query2 = "DELETE FROM `datapelatihan` WHERE kodeKerusakan='" . $id . "'";
+        $this->konek->query($query1);
+        $this->konek->query($query2);
         $berhasil = $this->konek->query($query);
         var_dump($berhasil);
         if ($berhasil) {
@@ -78,11 +86,25 @@ class Kerusakanmodel extends Purbamodel
 
     public function ambilkerusakan($kode)
     {
-        $query = "SELECT namaKerusakan FROM kerusakan WHERE kodeKerusakan = '".$kode."'";
-        $namakerusakan = mysqli_fetch_assoc($this->konek->query($query));
-        if($namakerusakan==null){
-            $namakerusakan['namaKerusakan'] = 'tidak dikenali';
+        $corekerusakan = [];
+        foreach ($kode as $ker) {
+            $query = "SELECT namaKerusakan FROM kerusakan WHERE kodeKerusakan = '" . $ker . "'";
+            $namakerusakan = mysqli_fetch_assoc($this->konek->query($query));
+            $query1 = "SELECT * FROM solusi WHERE kodeKerusakan = '" . $ker . "'";
+            $solusi = $this->konek->query($query1);
+            $hasilsolusi = [];
+            while ($detailsolusi = mysqli_fetch_assoc($solusi)) {
+                $hasilsolusi[] = $detailsolusi;
+            }
+            $detaildiagnosa = [];
+
+            $detaildiagnosa = [
+                "kode" => $ker,
+                "namakerusakan" => $namakerusakan,
+                "solusi" => $hasilsolusi
+            ];
+            $corekerusakan[] = $detaildiagnosa;
         }
-        return $namakerusakan;
+        return $corekerusakan;
     }
 }

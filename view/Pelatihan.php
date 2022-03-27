@@ -13,8 +13,8 @@
 						<td>Kode Kerusakan</td>
 						<td class="head-nama">Nama Kerusakan</td>
 						<td>Status</td>
-						<td>Total Data</td>
-						<td>Data terlatih</td>
+						<td>Rasio</td>
+						<td>Status</td>
 						<td>Sisa Data</td>
 						<td>Aksi</td>
 					</tr>
@@ -23,10 +23,20 @@
 						<!-- //mengenali atau tidak -->
 						<?php
 						$isi = "<span class='tidak-dikenali'>tidak dikenali</span>";
+						$dataterlatih = 0;
 						foreach ($data['recognice'] as $value) {
 							if ($item['kodeKerusakan'] == $value['kodeKerusakan']) {
 								$isi = "<span class='dikenali'>dikenali</span>";
+								$dataterlatih = $value['totaldata'];
 							}
+						}
+						// pengecekan status
+						$sisa = $data['datapel']['totaldata']-$dataterlatih;
+						$status = "<span class='siap-uji'>siap uji</span>";
+						if($sisa == $data['datapel']['totaldata']){
+							$status = "<span class='wajib-latih'>wajib latih</span>";
+						}elseif($sisa>0&&$sisa<$data['datapel']['totaldata']){
+							$status = "<span class='latih-ulang'>latih ulang</span>";
 						}
 						?>
 						<tr class="tabel-isi">
@@ -34,9 +44,9 @@
 							<td><?= $item['kodeKerusakan'] ?></td>
 							<td><?= $item['namaKerusakan'] ?></td>
 							<td><?= $isi ?></td>
-							<td>32</td>
-							<td>32</td>
-							<td>0</td>
+							<td><?=$data['datapel']['totaldata'] ?>/<?=$dataterlatih ?></td>
+							<td><?= $status ?></td>
+							<td><?=$sisa?></td>
 							<td><a class="btn-latih" href="<?= BASE_URL ?>pelatihan/latih/<?= $item['kodeKerusakan'] ?>">latih</a>&nbsp;<button class="btn-hapus" onclick="hapus({code:'<?= $item['kodeKerusakan'] ?>',url:'<?= BASE_URL ?>pelatihan/hapus/<?= $item['kodeKerusakan'] ?>'})">hapus</button>&nbsp;<button class="btn-edit" onclick="cek(['<?= $item['kodeKerusakan'] ?>','<?= $item['namaKerusakan'] ?>'])">edit</button>&nbsp;<a class="solusi" href="<?= BASE_URL ?>solusi/index/<?= $item['kodeKerusakan'] ?>">Kelola Solusi</a></td>
 						</tr>
 						<?php $number++; ?>

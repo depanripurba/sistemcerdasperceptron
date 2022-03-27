@@ -21,7 +21,9 @@
 
                 <div class="tabel-small">
                     <?php
+                    $class = null;
                     if (count($data['datapel']) === 0) {
+                        $class = 'hide';
                         echo "Data pelatihan kerusakan " . $data['kodeKerusakan'] . " masih kosong";
                     } else { ?>
                         <table cellspacing="0" class="tabel">
@@ -56,7 +58,7 @@
                 </div>
                 <div class="container-button">
                     <a class="btn-added" href="<?= BASE_URL ?>pelatihan/latih/<?= $data['kodeKerusakan'] ?>/tambah">Tambah</a>
-                    <a class="btn-proses" href="<?= BASE_URL ?>pelatihan/prosesdata/<?= $data['kodeKerusakan'] ?>">Proses Latih Data</a>
+                    <a class="btn-proses <?=$class ?>" href="<?= BASE_URL ?>pelatihan/prosesdata/<?= $data['kodeKerusakan'] ?>">Proses Latih Data</a>
                 </div>
             </div>
         </div>

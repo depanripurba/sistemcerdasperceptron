@@ -22,10 +22,12 @@ function prosesLatih($kode, $data, $model)
 {
 	//merubah target menjadi 1 atau -1
 	$databaru = [];
+	$banyakdata = 0;
 	foreach ($data as $item) {
 		$t = $item['kodeKerusakan'] == $kode ? 1 : -1;
 		$item['T'] = $t;
 		$databaru[] = $item;
+		$banyakdata++;
 	}
 	$bias = 0;
 	$treshold = 0;
@@ -83,12 +85,12 @@ function prosesLatih($kode, $data, $model)
 		$perulangancount++;
 	}
 	//akhir dari perulangan while;
-	$model->addbobot($kode, $bobot, $bias);
+	$model->addbobot($kode, $bobot, $bias,$banyakdata);
 }
 //fungsi diagnosa
 function diagnosa($data)
 {
-	$kerusakan = "Tidak Dikenali";
+	$kerusakan = [];
 	$treshold = 0;
 	foreach ($data[0] as $item) {
 		$sigma = $item['bias'];
@@ -99,7 +101,7 @@ function diagnosa($data)
 			$index++;
 		}
 		if ($sigma > $treshold) {
-			$kerusakan = $item['kodeKerusakan'];
+			$kerusakan[] = $item['kodeKerusakan'];
 		}
 	}
 	return $kerusakan;
