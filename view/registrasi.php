@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Halaman Registrasi User</title>
+	<link rel="icon" href="<?=BASE_URL?>assets/icons/logo.svg" type="image/svg" sizes="16x16">
 	<link rel="stylesheet" href="<?=BASE_URL?>assets/css/registrasi.css">
 </head>
 <body>
@@ -22,6 +23,7 @@
 	<!-- php code -->
 	<form action="<?=BASE_URL?>registrasi/regis" method="post">
 		<div class="registrasi">
+			<img width="100px" src="<?=BASE_URL?>assets/icons/logo.svg" alt="">
 			<div>Daftarkan diri anda sebagai user</div>
 			<div class="second-box">
 				<div>

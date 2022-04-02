@@ -64,4 +64,10 @@ class Solusi extends Purbacontroler
 			echo "Gagal ditambahkan";
 		}
 	}
+	public function ajax($ode){
+		$kerusakan = new Kerusakanmodel();
+		$kode = $kerusakan->getKodekerlike($ode);
+		$detailhasil = $kerusakan->ambilkerusakan($kode);
+		echo json_encode($detailhasil);
+	}
 }

@@ -17,8 +17,6 @@ hider.onclick = () => {
 arrow.onclick = () => {
 	logout.classList.toggle("show");
 	hider.classList.toggle("tampil");
-	console.log(menu);
-	console.log("hai")
 }
 
 

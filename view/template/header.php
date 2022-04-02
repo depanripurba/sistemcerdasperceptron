@@ -28,6 +28,7 @@ $title = isset($data['title']) ? $data['title'] : "Sistem Cerdas Perceptron";
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?= $title ?></title>
+	<link rel="icon" href="<?=BASE_URL?>assets/icons/logo.svg" type="image/svg" sizes="16x16">
 	<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/index.css">
 	<script src="<?= BASE_URL ?>assets/js/header.js"></script>
 	<style>
@@ -57,15 +58,13 @@ $title = isset($data['title']) ? $data['title'] : "Sistem Cerdas Perceptron";
 			<span class="person-navigate">
 				<img id="arrow" src="<?= BASE_URL ?>assets/icons/arrow.svg" alt="">
 				<div id="menu-logout" class="menu-logout">
-					<span><a href="">Profil</a></span>
-					<span><a href="<?= BASE_URL ?>login/keluar">Log out</a></span>
-				</div>
-				<div id="hider" class="hider">
-
+					<a href="<?= BASE_URL ?>profil"><img src="<?=BASE_URL?>assets/icons/person.svg" alt=""><span>Ganti Nama</span></a>
+					<a href="<?= BASE_URL ?>login/keluar"><img src="<?=BASE_URL?>assets/icons/logout.svg" alt=""><span>Log out</span></a>
 				</div>
 			</span>
 		</div>
 	</div>
+	<div id="hider" class="hider"></div>
 
 	<!-- side bar -->
 	<div class="side-bar">

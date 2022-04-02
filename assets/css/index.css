@@ -1,9 +1,11 @@
 * {
     font-family: helvetica, arial, sans-serif;
 }
-.fontc{
+
+.fontc {
     color: #666666;
 }
+
 .siap-uji {
     background: #0D6EFD;
     color: white;
@@ -51,10 +53,6 @@ body {
     display: block;
 }
 
-.hider {
-    display: none;
-}
-
 .tabel-small table {
     font-size: 10pt;
 }
@@ -62,7 +60,8 @@ body {
 .alert {
     color: red;
 }
-.bar{
+
+.bar {
     margin-top: 40px;
     width: 500px;
     height: 300px;
@@ -71,7 +70,7 @@ body {
     margin-top: 20px;
 }
 
-.bar3{
+.bar3 {
     margin-top: 30px;
     margin-bottom: 40px;
     border: 1px solid #D07C7C;
@@ -111,7 +110,8 @@ body {
     border-radius: 5px;
     transition: 0.5s background;
 }
-.ttl-data{
+
+.ttl-data {
     display: flex;
     gap: 20px;
     padding: 3px;
@@ -121,7 +121,8 @@ body {
     border-radius: 5px;
     transition: 0.5s background;
 }
-.ttl-diagnosa{
+
+.ttl-diagnosa {
     display: flex;
     gap: 20px;
     padding: 3px;
@@ -132,23 +133,38 @@ body {
     transition: 0.5s background;
 }
 
+.loading {
+    width: 40px;
+    display: none;
+    align-self: center;
+}
+
+.content-search {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 .jlh-user:hover {
     background: #1CA4C5;
 
 }
+
 .ttl-ker:hover {
     background: #1E8053;
 
 }
+
 .ttl-data:hover {
     background: #B7812C;
 
 }
+
 .ttl-diagnosa:hover {
     background: #9B4338;
 }
 
-.link a{
+.link a {
     color: white;
 }
 
@@ -181,6 +197,7 @@ body {
     background-repeat: no-repeat;
     opacity: 0.4;
 }
+
 .bg-gambar2 {
     width: 100px;
     background-image: url('../img/ai.png');
@@ -188,6 +205,7 @@ body {
     background-repeat: no-repeat;
     opacity: 0.4;
 }
+
 .bg-gambar3 {
     width: 100px;
     background-image: url('../img/diag.png');
@@ -368,9 +386,11 @@ button {
     background: #006cff;
     color: white;
 }
-.penjelasan{
+
+.penjelasan {
     padding: 0 10pxs;
 }
+
 .container-gejala {
     padding: 5px 7px;
     display: flex;
@@ -378,19 +398,23 @@ button {
     flex-direction: row;
     border-radius: 10px;
 }
-.map{
+
+.map {
     width: 300px;
     align-self: flex-start;
 }
-.jarak{
+
+.jarak {
     line-height: 30px;
 }
-.home-user{
+
+.home-user {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 40px;
 }
+
 .input-gejala {
     cursor: pointer;
     width: 20px;
@@ -451,6 +475,57 @@ button {
 .content {
     text-align: left;
     padding-right: 50px;
+    min-height: 100vh;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.contact span {
+    justify-self: center;
+}
+
+.footer {
+    margin-left: 120px;
+    background: #356BB3;
+    color: #C2C1C1;
+    margin-top: 100px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.root1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.root1 div {
+    display: flex;
+    flex-direction: column;
+    font-size: 11pt;
+    line-height: 24px;
+}
+
+.root2 {
+    background: #234573;
+    padding: 4px;
+    font-size: 10pt;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer div span:hover {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
 }
 
 .person {
@@ -491,17 +566,47 @@ button {
     background: white;
     position: absolute;
     top: 60px;
-    left: 1010px;
-    padding: 10px 20px;
+    left: 1000px;
     z-index: 2;
-    gap: 5px;
+    width: 200px;
     font-weight: normal;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+
+.menu-logout a {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    padding: 10px;
+    text-decoration: none;
+}
+.menu-logout a img{
+    align-self: center;
+    color: #666666;
+}
+.menu-logout a span{
+    align-self: center;
+    color: #666666;
+}
+.menu-logout a:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.menu-logout a:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.menu-logout a:hover {
+    background: #DBDBE7;
+
+}
+
 .hider {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
@@ -526,7 +631,7 @@ button {
 
 .menu-primer {
     padding: 10px 5px;
-    color: black;
+    color: #666666;
     font-weight: 200;
     text-decoration: none;
     color: white;
@@ -558,6 +663,7 @@ button {
 .menu-primer:nth-child(4):hover~.indikator {
     transform: translateY(300%);
 }
+
 .menu-primer:nth-child(5):hover~.indikator {
     transform: translateY(400%);
 }
@@ -577,6 +683,7 @@ button {
 .menu-primer:nth-child(4):hover {
     color: #006cff;
 }
+
 .menu-primer:nth-child(5):hover {
     color: #006cff;
 }
@@ -597,6 +704,7 @@ button {
 .menu-primer:nth-child(4):hover .icon {
     fill: #006cff;
 }
+
 .menu-primer:nth-child(5):hover .icon {
     fill: #006cff;
 }
@@ -631,7 +739,7 @@ button {
 }
 
 .cek {
-    fill: black;
+    fill: #666666;
 }
 
 /* css halaman pelatihan data */

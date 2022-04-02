@@ -11,6 +11,17 @@ class Kerusakanmodel extends Purbamodel
         return $hasilakhir;
 
     }
+    public function getKodekerlike($kode){
+        $query = "SELECT kodeKerusakan FROM kerusakan WHERE kodeKerusakan LIKE '%".$kode."%'";
+        $result = $this->konek->query($query);
+        $hasilakhir = [];
+        while($data = mysqli_fetch_assoc($result)){
+            $hasilakhir[]=$data['kodeKerusakan'];
+
+        }
+        return $hasilakhir;
+
+    }
     public function addtodb($data)
     {
         $query = "INSERT INTO kerusakan VALUES('" . $data['kodeKerusakan'] . "','" . $data['kerusakan'] . "')";

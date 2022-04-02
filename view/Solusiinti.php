@@ -4,10 +4,16 @@
 	<div class="content">
 		<div class="halaman">
 			<div class="judul-halaman">
-				<h3>Kerusakan dan solusi</h3> <input type="text" placeholder="cari disini berdasarkan kode">
+				<h3>Kerusakan dan solusi</h3>
+				<div class="content-search">
+					<input class="input" id="ajaxinput" type="text" placeholder="cari ('kode')">
+					<input id="url" type="hidden" value="<?= BASE_URL ?>solusi/ajax">
+					<img id="loading" class="loading" src="<?= BASE_URL ?>assets/icons/loading.gif" alt="">
+				</div>
+
 				<div class="spacing"></div>
 			</div>
-			<div class="isi-halaman">
+			<div class="isi-halaman" id="isi-halaman">
 				<?php $nomor = 1; ?>
 				<?php foreach ($data as $item) : ?>
 					<div class="content-hasil">
@@ -59,3 +65,5 @@
 
 	</div>
 </div>
+
+<script src="<?= BASE_URL ?>assets/js/ajaxnative.js"></script>

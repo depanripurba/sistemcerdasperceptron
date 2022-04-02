@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Halaman Login</title>
+	<link rel="icon" href="<?=BASE_URL?>assets/icons/logo.svg" type="image/svg" sizes="16x16">
 	<link rel="stylesheet" href="<?=BASE_URL?>assets/css/login.css">
 </head>
 <body>
@@ -23,6 +24,7 @@
 			<img src="<?=BASE_URL?>assets/" alt="">
 		</div>
 		<div class="login">
+			<img width="100px" src="<?=BASE_URL?>assets/icons/logo.svg" alt="">
 			<div>Silahkan log in</div>
 			<div>
 				<input class="<?=$classemail ?>" name="email" type="text" placeholder="input your email" value="<?=$email ?>">
