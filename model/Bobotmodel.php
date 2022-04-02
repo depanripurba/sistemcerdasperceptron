@@ -19,11 +19,7 @@ class Bobotmodel extends Purbamodel
 		$insert = "INSERT INTO pembobotan VALUES('" . $kode . "'" . $stringbobot . "," . $bias .",".$totaldata. ")";
 		$query = count($result) == 0 ? $insert : $update;
 		$hasil = $this->konek->query($query);
-		if ($hasil) {
-			header("location:" . BASE_URL . "pelatihan");
-		} else {
-			echo "Kerusakan Gagal untuk ditambahkan";
-		}
+		return $hasil;
 	}
 
 	public function recod()

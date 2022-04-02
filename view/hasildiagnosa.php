@@ -22,7 +22,7 @@ $gejalainput = $_SESSION['hasildiagnosa']['gejalacentang'];
 							<img class="img-info" src="<?= BASE_URL ?>assets/icons/info.svg" alt="">
 							<span>Tidak ada kerusakan</span>
 						</div>
-						<a class="diagnosa-ulang" href="<?= BASE_URL ?>/diagnosa/clearhasil""><img src="<?= BASE_URL ?>assets/icons/reload.svg" alt=""> Diagnosa ulang</a>
+						<a class="diagnosa-ulang" href="<?= BASE_URL ?>/diagnosa/clearhasil""><img src=" <?= BASE_URL ?>assets/icons/reload.svg" alt=""> Diagnosa ulang</a>
 					</div>
 				<?php } else { ?>
 					<div class="root-info">
@@ -30,8 +30,22 @@ $gejalainput = $_SESSION['hasildiagnosa']['gejalacentang'];
 							<img class="img-info" src="<?= BASE_URL ?>assets/icons/info.svg" alt="">
 							<span>Ditemukan <?php echo count($data) ?> Kerusakan</span>
 						</div>
-						<a class="diagnosa-ulang" href="<?= BASE_URL ?>/diagnosa/clearhasil""><img src="<?= BASE_URL ?>assets/icons/reload.svg" alt=""> Diagnosa ulang</a>
-						<a class="diagnosa-ulang" href=""><img src="<?= BASE_URL ?>assets/icons/print.svg" alt=""> Cetak</a>
+						<a class="diagnosa-ulang" href="<?= BASE_URL ?>/diagnosa/clearhasil"><img src="<?= BASE_URL ?>assets/icons/reload.svg" alt=""> Diagnosa ulang</a>
+						<?php
+						//generate hasil diagnosa jadi string;
+						$kode = "";
+						foreach ($data as $item) {
+							$kode .= " " . $item['kode'];
+						}
+						$kodege = "";
+						foreach ($gejalainput as $item) {
+							$kodege .= "," . $item['kodeGejala'];
+						}
+						$kodege = substr($kodege, 1);
+						$kode = substr($kode, 1);
+						?>
+						<a class="diagnosa-ulang" target="_blank" href="<?= BASE_URL ?>cetak/index/<?= $kode ?>[]<?= $kodege ?>"><img src="<?= BASE_URL ?>assets/icons/print.svg" alt=""> Cetak</a>
+						<a class="diagnosa-ulang" href="<?= BASE_URL ?>cetak/simpan/<?= $kode ?>[]<?= $kodege ?>"><img src="<?= BASE_URL ?>assets/icons/save.svg" alt=""> Simpan Sebagai PDF</a>
 					</div>
 				<?php } ?>
 				<?php $nomor = 1; ?>
@@ -56,21 +70,25 @@ $gejalainput = $_SESSION['hasildiagnosa']['gejalacentang'];
 											<td class="tabel-pengantar"><i>Solusi</i></td>
 											<td class="tabel-pengantar">:</td>
 											<td class="solusi-tabel">
-												<table class="tabel-solusi">
-													<?php foreach ($item['solusi'] as $values) : ?>
-														<tr>
-															<?php if ($values['jenis'] == 1) : ?>
-																<td colspan="2"><?= $values['aksi'] ?></td>
-															<?php endif ?>
-															<?php if ($values['jenis'] == 2) : ?>
-																<td><b>- </b><?= $values['aksi'] ?></td>
-															<?php endif ?>
-															<?php if ($values['jenis'] == 3) : ?>
-																<td><b><i>note : </i></b><?= $values['aksi'] ?></td>
-															<?php endif ?>
-														</tr>
-													<?php endforeach ?>
-												</table>
+												<?php if ($item['solusi'] == null) { ?>
+													<span>Solusi belum ada</span>
+												<?php } else { ?>
+													<table class="tabel-solusi">
+														<?php foreach ($item['solusi'] as $values) : ?>
+															<tr>
+																<?php if ($values['jenis'] == 1) : ?>
+																	<td colspan="2"><?= $values['aksi'] ?></td>
+																<?php endif ?>
+																<?php if ($values['jenis'] == 2) : ?>
+																	<td><b>- </b><?= $values['aksi'] ?></td>
+																<?php endif ?>
+																<?php if ($values['jenis'] == 3) : ?>
+																	<td><b><i>note : </i></b><?= $values['aksi'] ?></td>
+																<?php endif ?>
+															</tr>
+														<?php endforeach ?>
+													</table>
+												<?php } ?>
 											</td>
 										</tr>
 									</table>
@@ -84,9 +102,9 @@ $gejalainput = $_SESSION['hasildiagnosa']['gejalacentang'];
 						<div class="tambah-gejala">
 							<?php foreach ($gejalainput as $value) : ?>
 								<div class="container-gejala">
-									<input checked id="<?=$value['kodeGejala']?>" value=1 class="input-gejala" type="checkbox" >
-									<label for="<?=$value['kodeGejala']?>" class="gejala"><?=$value['kodeGejala']?><label />
-										<label for="<?=$value['kodeGejala']?>" class="gejala"><?=$value['namaGejala']?><label />
+									<input checked id="<?= $value['kodeGejala'] ?>" value=1 class="input-gejala" type="checkbox">
+									<label for="<?= $value['kodeGejala'] ?>" class="gejala"><?= $value['kodeGejala'] ?><label />
+										<label for="<?= $value['kodeGejala'] ?>" class="gejala"><?= $value['namaGejala'] ?><label />
 								</div>
 							<?php endforeach ?>
 

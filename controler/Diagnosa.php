@@ -3,6 +3,7 @@ require_once "model/Gejalamodel.php";
 require_once "model/Kerusakanmodel.php";
 require_once "model/Bobotmodel.php";
 require_once "model/Solusimodel.php";
+require_once "model/Hasildiagnosamodel.php";
 class Diagnosa extends Purbacontroler
 {
     public function __construct()
@@ -40,6 +41,7 @@ class Diagnosa extends Purbacontroler
         } else {
             $bobot = new Bobotmodel();
             $detail = new Kerusakanmodel();
+            $hasildiag = new Hasildiagnosamodel();
             $allbobots = $bobot->ambilsemua();
             unset($_POST['submit']);
             $gejalacentang = [];
@@ -52,6 +54,7 @@ class Diagnosa extends Purbacontroler
             $gejalacentang = $ambilgejala->centang($gejalacentang);
             $hasil = diagnosa([$allbobots, $_POST]);
             $detailhasil = $detail->ambilkerusakan($hasil);
+            $hasildiag->simpanhasil($_POST,$hasil);
             $hasildiagnosa = [
                 "hasil" => $detailhasil,
                 "gejalacentang" => $gejalacentang

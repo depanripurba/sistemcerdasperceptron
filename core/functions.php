@@ -12,7 +12,6 @@ function Ceklogin()
 	session_start();
 	if (isset($_SESSION['login'])) {
 	} else {
-		echo "login tidak terdeteksi";
 		header("location:" . BASE_URL . "login");
 	}
 }
@@ -21,6 +20,7 @@ function Ceklogin()
 function prosesLatih($kode, $data, $model)
 {
 	//merubah target menjadi 1 atau -1
+	
 	$databaru = [];
 	$banyakdata = 0;
 	foreach ($data as $item) {
@@ -29,6 +29,7 @@ function prosesLatih($kode, $data, $model)
 		$databaru[] = $item;
 		$banyakdata++;
 	}
+
 	$bias = 0;
 	$treshold = 0;
 	$learningrate = 1;
@@ -83,9 +84,14 @@ function prosesLatih($kode, $data, $model)
 			$berhenti = true;
 		}
 		$perulangancount++;
+		if($perulangancount==40){
+			echo "sepertinya ada kesalahan pada pola data. Periksa kembali pola data pastikan tidak ada pola data yang sama";
+			die;
+		}
 	}
 	//akhir dari perulangan while;
-	$model->addbobot($kode, $bobot, $bias,$banyakdata);
+	$back = $model->addbobot($kode, $bobot, $bias,$banyakdata);
+	return $back;
 }
 //fungsi diagnosa
 function diagnosa($data)

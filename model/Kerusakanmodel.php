@@ -1,6 +1,16 @@
 <?php
 class Kerusakanmodel extends Purbamodel
 {
+    public function getKodeker(){
+        $result = $this->konek->query("SELECT kodeKerusakan FROM kerusakan");
+        $hasilakhir = [];
+        while($data = mysqli_fetch_assoc($result)){
+            $hasilakhir[]=$data['kodeKerusakan'];
+
+        }
+        return $hasilakhir;
+
+    }
     public function addtodb($data)
     {
         $query = "INSERT INTO kerusakan VALUES('" . $data['kodeKerusakan'] . "','" . $data['kerusakan'] . "')";

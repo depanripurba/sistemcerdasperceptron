@@ -23,9 +23,9 @@ class Pelatihan extends Purbacontroler
         ];
         $kerusakan = new Kerusakanmodel();
         $datapel = $kerusakan->datapel();
-        $databody=[
-            "recognice"=>$recognice,
-            "datapel"=>$datapel
+        $databody = [
+            "recognice" => $recognice,
+            "datapel" => $datapel
         ];
         $this->tampil("template/header", $data);
         $this->tampil("Pelatihan", $databody);
@@ -75,6 +75,16 @@ class Pelatihan extends Purbacontroler
             $this->tampil("latih", $databody);
             $this->tampil("template/footer", "");
         }
+    }
+    public function latihulangall()
+    {
+        $bobot = new Bobotmodel();
+        $pelatihan = new Pelatihanmodel();
+        foreach ($_POST['ulanglatih'] as $result) {
+            $datapel = $pelatihan->getwhere($result, true);
+            $result = prosesLatih($result, $datapel, $bobot);
+        }
+        header("location:" . BASE_URL . "pelatihan");
     }
     public function detaildatalatih($array)
     {
@@ -126,7 +136,20 @@ class Pelatihan extends Purbacontroler
         $bobot = new Bobotmodel();
         $pelatihan = new Pelatihanmodel();
         $datapel = $pelatihan->getwhere($kodeker, true);
-        prosesLatih($kodeker, $datapel, $bobot);
+        $result = prosesLatih($kodeker, $datapel, $bobot);
+        if ($result) {
+            header("location:" . BASE_URL . "pelatihan");
+        }
+    }
+    public function hapusdataid($id){
+        $pelatihan = new Pelatihanmodel();
+        $data = explode(" ",$id);
+        $cek = $pelatihan->delete($id);
+        if($cek){
+            header("location:" . BASE_URL . "pelatihan/latih/".$data[1]);
+        }else{
+            echo "Data gagal dihapus";
+        }
     }
 
     public function addlatihtodb()

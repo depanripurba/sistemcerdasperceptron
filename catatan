@@ -27,3 +27,16 @@ catatan penting adalah sebagai berikut :
 
 
  = saat bangun akan menghubungkan antara solusi ke halaman tampil solusi agar sesuai dengan skripsi yang sedang dirancang
+
+
+ = hal-hal yang perlu untuk diperbaiki tanggal 28 Maret adalah seperti di bawah ini:
+ - menu diagnosa yang bisa sekaligus menyimpan data history ke database
+ - latih ulang pada halaman pelatihan dijadikan tombol, sehingga user tidak perlu repot repot untuk mengunjungi halaman tambah pelatihan 
+
+
+ hal-hal yang perlu untuk diperbaiki adalah
+ - ajax untuk kerusakan
+ - footer
+ - profil
+ - logo
+ - menyesuaikan dengan data real skripsi

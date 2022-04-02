@@ -24,12 +24,12 @@ const hapus = (e)=>{
     }
 
 }
+
 const delet = (e,param)=>{
     e.preventDefault();
     var cek = confirm("Yakin menghapus data untuk kode "+param['kode']+" dengan id "+param['id']+" ?");
     if(cek===true){
-        console.log(param);
-        
+        document.location.href = param['url']+"+"+param['kode']      
     }else{
 
     }

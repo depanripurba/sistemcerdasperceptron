@@ -1,19 +1,32 @@
 * {
     font-family: helvetica, arial, sans-serif;
 }
-
+.fontc{
+    color: #666666;
+}
 .siap-uji {
     background: #0D6EFD;
     color: white;
-    border-radius: 5px;
-    padding: 5px;
+    padding: 2px;
+}
+
+.container-tombol {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 1050px;
+    margin-bottom: 20px;
+}
+
+.tanggal {
+    width: 200px;
 }
 
 .wajib-latih {
     background: red;
     color: white;
     border-radius: 5px;
-    padding: 5px;
+    padding: 2px;
 }
 
 .latih-ulang {
@@ -21,6 +34,11 @@
     color: white;
     border-radius: 5px;
     padding: 5px;
+    cursor: pointer;
+}
+
+.latih-ulang:hover {
+    background: #0D6EFD;
 }
 
 body {
@@ -44,15 +62,175 @@ body {
 .alert {
     color: red;
 }
+.bar{
+    margin-top: 40px;
+    width: 500px;
+    height: 300px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.bar3{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    border: 1px solid #D07C7C;
+    width: 500px;
+    height: 500px;
+    padding: 20px;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.content-dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.jlh-user {
+    display: flex;
+    gap: 20px;
+    padding: 3px;
+    background: #00C0EF;
+    color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    transition: 0.5s background;
+
+}
+
+.ttl-ker {
+    display: flex;
+    gap: 20px;
+    padding: 3px;
+    background: #00A65A;
+    color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    transition: 0.5s background;
+}
+.ttl-data{
+    display: flex;
+    gap: 20px;
+    padding: 3px;
+    background: #F39C12;
+    color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    transition: 0.5s background;
+}
+.ttl-diagnosa{
+    display: flex;
+    gap: 20px;
+    padding: 3px;
+    background: #DD4B39;
+    color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    transition: 0.5s background;
+}
+
+.jlh-user:hover {
+    background: #1CA4C5;
+
+}
+.ttl-ker:hover {
+    background: #1E8053;
+
+}
+.ttl-data:hover {
+    background: #B7812C;
+
+}
+.ttl-diagnosa:hover {
+    background: #9B4338;
+}
+
+.link a{
+    color: white;
+}
+
+.section-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.head-content {
+    font-size: 14pt;
+}
+
+.content-angka {
+    font-size: 25pt;
+    font-weight: bold;
+}
+
+.bg-gambar {
+    width: 100px;
+    background-image: url('../img/user.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bg-gambar1 {
+    width: 100px;
+    background-image: url('../img/ker.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+}
+.bg-gambar2 {
+    width: 100px;
+    background-image: url('../img/ai.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+}
+.bg-gambar3 {
+    width: 100px;
+    background-image: url('../img/diag.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+}
 
 .solusi-notif {
     background: red;
     color: white;
 }
 
-.solusi-notif-true {
-    background: green;
+.underline {
+    width: 400px;
+    background: #0D6EFD;
     color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.spacing {
+    height: 10px;
+}
+
+.solusi-notif-true {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    background: #0D6EFD;
+    font-size: 10pt;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.solusi-notif-true img {
+    margin-top: 2px;
+}
+
+.solusi-notif-true span {
+    /*border: 1px solid red;*/
+    margin-left: 5px;
 }
 
 .gejala-centang {
@@ -84,6 +262,14 @@ body {
     padding: 3px 5px;
     background: #0D6EFD;
     color: white;
+}
+
+.diagnosa-ulang:hover {
+    background: #144082;
+}
+
+.font-small {
+    font-size: 10pt;
 }
 
 .root-info {
@@ -144,6 +330,15 @@ button {
     cursor: pointer;
 }
 
+.rasio {
+    color: green;
+    font-weight: bold;
+}
+
+.infoo {
+    color: red;
+}
+
 .add {
     cursor: pointer;
 }
@@ -163,19 +358,19 @@ button {
 }
 
 .tidak-dikenali {
-    border-radius: 5px;
-    padding: 5px;
+    padding: 2px;
     background: red;
     color: white;
 }
 
 .dikenali {
-    padding: 5px;
+    padding: 2px;
     background: #006cff;
-    border-radius: 5px;
     color: white;
 }
-
+.penjelasan{
+    padding: 0 10pxs;
+}
 .container-gejala {
     padding: 5px 7px;
     display: flex;
@@ -183,7 +378,19 @@ button {
     flex-direction: row;
     border-radius: 10px;
 }
-
+.map{
+    width: 300px;
+    align-self: flex-start;
+}
+.jarak{
+    line-height: 30px;
+}
+.home-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+}
 .input-gejala {
     cursor: pointer;
     width: 20px;
@@ -351,6 +558,9 @@ button {
 .menu-primer:nth-child(4):hover~.indikator {
     transform: translateY(300%);
 }
+.menu-primer:nth-child(5):hover~.indikator {
+    transform: translateY(400%);
+}
 
 .menu-primer:nth-child(1):hover {
     color: #006cff;
@@ -367,6 +577,10 @@ button {
 .menu-primer:nth-child(4):hover {
     color: #006cff;
 }
+.menu-primer:nth-child(5):hover {
+    color: #006cff;
+}
+
 
 .menu-primer:nth-child(1):hover .icon {
     fill: #006cff;
@@ -381,6 +595,9 @@ button {
 }
 
 .menu-primer:nth-child(4):hover .icon {
+    fill: #006cff;
+}
+.menu-primer:nth-child(5):hover .icon {
     fill: #006cff;
 }
 
@@ -420,7 +637,7 @@ button {
 /* css halaman pelatihan data */
 
 .halaman {
-    margin-top: 100px;
+    margin-top: 70px;
     margin-left: 30px;
 }
 
@@ -680,6 +897,10 @@ button {
 
 .show {
     display: flex;
+}
+
+.kode {
+    text-align: left !important;
 }
 
 @keyframes mymove {

@@ -88,7 +88,7 @@ class Usermodel extends Purbamodel{
 				}else{
 					if(password_verify($data['password'], $datadb['password'])){
 						session_start();
-						$menu = ["Dashboard","Diagnosa","Riwayat"];
+						$menu = ["Dashboard","Diagnosa","Riwayat","Solusi"];
 						$_SESSION['login'] = ["hak"=>"user","username"=>$datadb['username'],"email"=>$datadb['email'],"menu"=>$menu];
 						header("location:".BASE_URL,true,301);
 					}else{
@@ -100,7 +100,7 @@ class Usermodel extends Purbamodel{
 			}else{
 				if(password_verify($data['password'], $datafetchadmin['password'])){
 					session_start();
-					$menu = ["Dashboard","Pelatihan","Diagnosa","Riwayat"];
+					$menu = ["Dashboard","Pelatihan","Diagnosa","Riwayat","Solusi"];
 					$_SESSION['login'] = ["hak"=>"admin","username"=>$datafetchadmin['username'],"email"=>$datafetchadmin['email'],"menu"=>$menu];
 					header("location:".BASE_URL,true,301);
 				}else{
@@ -109,15 +109,20 @@ class Usermodel extends Purbamodel{
 					header("location:".BASE_URL."login",true,301);		
 				}
 			}
-
-			
-			
-
 		}
 
+
+		public function hitung(){
+			
+			return [
+				'pengguna'=>mysqli_fetch_assoc($this->konek->query("SELECT COUNT(*) as total FROM user"))['total'],
+				'kerusakan'=>mysqli_fetch_assoc($this->konek->query("SELECT COUNT(*) as total FROM kerusakan"))['total'],
+				'pelatihan'=>mysqli_fetch_assoc($this->konek->query("SELECT COUNT(*) as total FROM datapelatihan"))['total'],
+				'diagnosa'=>mysqli_fetch_assoc($this->konek->query("SELECT COUNT(*) as total FROM hasildiagnosa"))['total'],
+			];
+		}
 
 
 
 	}
 
-?>

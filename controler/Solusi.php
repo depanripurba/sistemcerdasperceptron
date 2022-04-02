@@ -1,16 +1,30 @@
 <?php
 require_once "model/Solusimodel.php";
+require_once "model/Kerusakanmodel.php";
 class Solusi extends Purbacontroler
 {
 	public function __construct()
 	{
 		Ceklogin();
+	}
+	public function index(){
+		$kerusakan = new Kerusakanmodel();
+		$kode = $kerusakan->getKodeker();
+		$detailhasil = $kerusakan->ambilkerusakan($kode);
+		$data = [
+			"menuAktif" => "Solusi",
+			"title" => "Halaman Solusi Kerusakan ",
+			"y" => ["admin" => "400%", "user" => "300%"]
+		];
+		$this->tampil("template/header", $data);
+		$this->tampil("Solusiinti", $detailhasil);
+		$this->tampil("template/footer", "");
+	}
+	public function kelolasolusi($kode)
+	{
 		if ($_SESSION['login']['hak'] != 'admin') {
 			header("location:" . BASE_URL . "dashboard");
 		}
-	}
-	public function index($kode)
-	{
 		$solusi = new Solusimodel();
 		$solusiker = $solusi->ambilsolusi($kode);
 		$databody = [
