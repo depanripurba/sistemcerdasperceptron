@@ -8,8 +8,9 @@
 				<h3>Ganti Profile</h3>
 			</div>
 			<div class="isi-halaman">
-				<form action="<?= BASE_URL ?>profil/update" method="POST">
+				<form action="<?= BASE_URL ?>profil/update" method="POST" enctype="multipart/form-data">
 					<table cellspacing="7"l>
+						<input type="hidden" name="email" value="<?= $_SESSION['login']['email'] ?>">
 						<tr>
 							<td>Nama</td>
 							<td>:</td>
@@ -21,7 +22,7 @@
 							<td><input name="file" type="file"></td>
 						</tr>
 						<tr>
-							<td colspan="3"><button type="submit" class="btn-detail">Update profil</button></td>
+							<td colspan="3"><button name="submit" type="submit" class="btn-detail">Update profil</button></td>
 						</tr>
 					</table>
 				</form>

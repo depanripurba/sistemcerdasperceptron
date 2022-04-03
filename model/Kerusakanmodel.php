@@ -1,26 +1,24 @@
 <?php
 class Kerusakanmodel extends Purbamodel
 {
-    public function getKodeker(){
+    public function getKodeker()
+    {
         $result = $this->konek->query("SELECT kodeKerusakan FROM kerusakan");
         $hasilakhir = [];
-        while($data = mysqli_fetch_assoc($result)){
-            $hasilakhir[]=$data['kodeKerusakan'];
-
+        while ($data = mysqli_fetch_assoc($result)) {
+            $hasilakhir[] = $data['kodeKerusakan'];
         }
         return $hasilakhir;
-
     }
-    public function getKodekerlike($kode){
-        $query = "SELECT kodeKerusakan FROM kerusakan WHERE kodeKerusakan LIKE '%".$kode."%'";
+    public function getKodekerlike($kode)
+    {
+        $query = "SELECT kodeKerusakan FROM kerusakan WHERE kodeKerusakan LIKE '%" . $kode . "%'";
         $result = $this->konek->query($query);
         $hasilakhir = [];
-        while($data = mysqli_fetch_assoc($result)){
-            $hasilakhir[]=$data['kodeKerusakan'];
-
+        while ($data = mysqli_fetch_assoc($result)) {
+            $hasilakhir[] = $data['kodeKerusakan'];
         }
         return $hasilakhir;
-
     }
     public function addtodb($data)
     {
@@ -74,17 +72,29 @@ class Kerusakanmodel extends Purbamodel
         $databody = [
             "autokodeker" => $KODEKER,
             "datapel" => $hasil,
-            "totaldata"=>$result['kode']
+            "totaldata" => $result['kode']
         ];
         return $databody;
+    }
+
+    public function statussolusi()
+    {
+        $kerusakan = $this->getKodeker();
+        $statussol = [];
+        foreach ($kerusakan as $item) {
+            $statussol[$item] = mysqli_fetch_assoc($this->konek->query("SELECT count(kodeKerusakan) as total FROM solusi WHERE kodeKerusakan='" . $item . "'"))['total'];
+        }
+        return $statussol;
     }
     public function hapus($id)
     {
         $query = "DELETE FROM `kerusakan` WHERE kodeKerusakan='" . $id . "'";
         $query1 = "DELETE FROM `pembobotan` WHERE kodeKerusakan='" . $id . "'";
         $query2 = "DELETE FROM `datapelatihan` WHERE kodeKerusakan='" . $id . "'";
+        $query3 = "DELETE FROM `solusi` WHERE kodeKerusakan='" . $id . "'";
         $this->konek->query($query1);
         $this->konek->query($query2);
+        $this->konek->query($query3);
         $berhasil = $this->konek->query($query);
         var_dump($berhasil);
         if ($berhasil) {

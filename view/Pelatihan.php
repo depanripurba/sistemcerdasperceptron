@@ -1,4 +1,3 @@
-
 <div class="container">
 	<div class="null">
 	</div>
@@ -7,7 +6,7 @@
 			<div class="judul-halaman">
 				<h3>Halaman Pelatihan Kerusakan</h3>
 			</div>
-			
+
 			<div class="isi-halaman">
 				<table cellspacing="0" class="tabel">
 					<tr>
@@ -19,9 +18,10 @@
 						<td>Status</td>
 						<td>Sisa Data</td>
 						<td>Aksi</td>
+						<td>Solusi</td>
 					</tr>
-					<?php 
-					$number = 1; 
+					<?php
+					$number = 1;
 					$latihulang = [];
 					?>
 					<?php foreach ($data['datapel']['datapel'] as $item) : ?>
@@ -44,9 +44,8 @@
 							$status = "<span class='wajib-latih'>wajib latih</span>";
 						} elseif ($sisa > 0 || $sisa < 0) {
 							$class = 'infoo';
-							$latihulang[]=$item['kodeKerusakan'];
+							$latihulang[] = $item['kodeKerusakan'];
 							$status = "<a href=" . BASE_URL . "pelatihan/prosesdata/" . $item['kodeKerusakan'] . " class='latih-ulang'>latih ulang</span>";
-
 						}
 						?>
 						<tr class="tabel-isi">
@@ -54,10 +53,16 @@
 							<td><?= $item['kodeKerusakan'] ?></td>
 							<td><?= $item['namaKerusakan'] ?></td>
 							<td><?= $isi ?></td>
-							<td ><span class="rasio <?=$class?>"><?= $data['datapel']['totaldata'] ?>/<?= $dataterlatih ?></span></td>
+							<td><span class="rasio <?= $class ?>"><?= $data['datapel']['totaldata'] ?>/<?= $dataterlatih ?></span></td>
 							<td><?= $status ?></td>
-							<td class="rasio <?=$class?>"><?= $sisa ?></td>
+							<td class="rasio <?= $class ?>"><?= $sisa ?></td>
 							<td><a class="btn-latih" href="<?= BASE_URL ?>pelatihan/latih/<?= $item['kodeKerusakan'] ?>">latih</a>&nbsp;<button class="btn-hapus" onclick="hapus({code:'<?= $item['kodeKerusakan'] ?>',url:'<?= BASE_URL ?>pelatihan/hapus/<?= $item['kodeKerusakan'] ?>'})">hapus</button>&nbsp;<button class="btn-edit" onclick="cek(['<?= $item['kodeKerusakan'] ?>','<?= $item['namaKerusakan'] ?>'])">edit</button>&nbsp;<a class="solusi" href="<?= BASE_URL ?>solusi/kelolasolusi/<?= $item['kodeKerusakan'] ?>">Kelola Solusi</a></td>
+							<?php
+							$class = $data['solusi'][$item['kodeKerusakan']] == 0 ? "cek" : "primer";
+							$icon = $data['solusi'][$item['kodeKerusakan']] == 0 ? "x.svg" : "chek.svg";
+							?>
+							  <td class="<?= $class ?>"><img src="<?=BASE_URL?>assets/icons/<?=$icon?>" alt=""></td>
+
 						</tr>
 						<?php $number++; ?>
 					<?php endforeach ?>
@@ -66,12 +71,12 @@
 				<span class="container-tombol">
 					<button id="btn-show" class="btn-tambah"><img src="<?= BASE_URL ?>/assets/icons/add_icon.svg" alt=""><span>Tambah</span> </button>
 					<form action="<?= BASE_URL ?>pelatihan/latihulangall" method="POST">
-						<?php foreach($latihulang as $latih): ?>
-							<input type="hidden" value="<?=$latih?>" name="ulanglatih[]">
+						<?php foreach ($latihulang as $latih) : ?>
+							<input type="hidden" value="<?= $latih ?>" name="ulanglatih[]">
 						<?php endforeach ?>
 						<button type="submit" id="btn-show" class="btn-tambah"><img src="<?= BASE_URL ?>/assets/icons/reload.svg" alt=""> <span>latih ulang semua data</span> </button>
 					</form>
-					
+
 				</span>
 			</div>
 		</div>

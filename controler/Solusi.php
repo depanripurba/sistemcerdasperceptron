@@ -47,7 +47,7 @@ class Solusi extends Purbacontroler
 		unset($_POST['kode']);
 		$berhasil = $solusi->simpansolusi($_POST, $kode);
 		if ($berhasil) {
-			header("location:" . BASE_URL . "solusi/index/" . $kode);
+			header("location:" . BASE_URL . "solusi/kelolasolusi/" . $kode);
 		} else {
 			echo "Gagal ditambahkan";
 		}
@@ -59,7 +59,7 @@ class Solusi extends Purbacontroler
 		$solusi = new Solusimodel();
 		$berhasil = $solusi->simpansolusi($_POST, $kode);
 		if ($berhasil) {
-			header("location:" . BASE_URL . "solusi/index/" . $kode);
+			header("location:" . BASE_URL . "solusi/kelolasolusi/" . $kode);
 		} else {
 			echo "Gagal ditambahkan";
 		}

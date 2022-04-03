@@ -26,27 +26,25 @@
 								</div>
 							<?php endif ?>
 							<?php if ($value['jenis'] == 2) : ?>
-								<div id="root-solusi" class="root-solusi">
-								<?php if ($indeks == 1) { ?>
-									<div class="spacing"></div>
-									<label><span class="underline">Langkah-langkah perbaikan</span></label>
-									<div class="root-header">
-										<textarea name="2[]" disabled="true" id="header" cols="50" rows="4"><?= $value['aksi'] ?></textarea>
-									</div>
-								<?php } else { ?>
-									<div class="root-header">
-										<textarea name="2[]" disabled="true" id="header" cols="50" rows="4"><?= $value['aksi'] ?></textarea>
-									</div>
-								<?php } ?>
-								</div>
+									<?php if ($indeks == 1) { ?>
+										<div id="root-solusi" class="root-solusi">
+										<div class="spacing"></div>
+										<label><span class="underline">Langkah-langkah perbaikan</span></label>
+										<div class="root-header">
+											<textarea name="2[]" class="step" disabled="true" id="header" cols="50" rows="4"><?= $value['aksi'] ?></textarea>
+										</div>
+									<?php } else { ?>
+										<div class="root-header">
+											<textarea name="2[]" class="step" disabled="true" id="header" cols="50" rows="4"><?= $value['aksi'] ?></textarea>
+										</div>
+									<?php } ?>
+								
 								<?php if ($assoc == count($data['solusi']) - 2) : ?>
+									</div>
 									<div>
 										<button class="tambahedit hide">add</button><button class="removeedit hide">remove</button>
 									</div>
-
 								<?php endif ?>
-
-
 							<?php endif ?>
 
 							<?php if ($value['jenis'] == 3) : ?>

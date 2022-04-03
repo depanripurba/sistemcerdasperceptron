@@ -23,9 +23,11 @@ class Pelatihan extends Purbacontroler
         ];
         $kerusakan = new Kerusakanmodel();
         $datapel = $kerusakan->datapel();
+        $solusi = $kerusakan->statussolusi();
         $databody = [
             "recognice" => $recognice,
-            "datapel" => $datapel
+            "datapel" => $datapel,
+            "solusi"=>$solusi
         ];
         $this->tampil("template/header", $data);
         $this->tampil("Pelatihan", $databody);
