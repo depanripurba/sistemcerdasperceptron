@@ -8,7 +8,7 @@
 			</div>
 			<div class="isi-halaman">
 				<div class="tambah-latih">
-					<h4>Silahkan centang gejala dan sesuaikan dengan target</h4>
+					<h4>Silahkan centang gejala sesuai dengan kerusakan</h4>
 					<form action="<?=BASE_URL?>pelatihan/addlatihtodb" method="POST">
 					<input type="hidden" name="kodeKerusakan" value="<?=$data['kodeKerusakan']?>">
 						<?php foreach ($data['gejala'] as $item) : ?>

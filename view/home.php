@@ -5,7 +5,7 @@
 	<div class="content">
 		<div class="halaman">
 			<div class="judul-halaman">
-				<h3>Home</h3>
+				<h3>Home Admin</h3>
 			</div>
 			<div class="isi-halaman">
 				<div class="content-dashboard">

@@ -18,7 +18,7 @@ class Pelatihan extends Purbacontroler
         $recognice = $bobot->recod();
         $data = [
             "menuAktif" => "Pelatihan",
-            "title" => "Halaman Pelatihan",
+            "title" => "Kelola Kerusakan",
             "y" => ["admin" => "100%", "user" => "100%"]
         ];
         $kerusakan = new Kerusakanmodel();

@@ -1,10 +1,7 @@
 <?php 
-
 require_once "core/Purbacontroler.php";
 require_once "core/Purbamodel.php";
 require_once "core/functions.php";
-
-
 class Purba{
 	public $method = "index";
 	public $controler = "home";
@@ -12,7 +9,6 @@ class Purba{
 		if(file_exists("controler/".$this->ambilurl()[0].".php")){
 			$this->controler = $this->ambilurl()[0];
 		}
-
 		require_once "controler/".$this->controler.".php";
 		$controler = new $this->controler();
 		if(isset($this->ambilurl()[1])){
@@ -40,10 +36,6 @@ class Purba{
 		}
 	}
 }
-
-
 $depanri = new Purba();
-
-
 ?>
 

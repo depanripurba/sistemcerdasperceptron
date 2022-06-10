@@ -4,7 +4,7 @@
 	<div class="content">
 		<div class="halaman">
 			<div class="judul-halaman">
-				<h3>Halaman Pelatihan Kerusakan</h3>
+				<h3>Halaman Kelola Kerusakan</h3>
 			</div>
 
 			<div class="isi-halaman">
@@ -15,7 +15,7 @@
 						<td class="head-nama">Nama Kerusakan</td>
 						<td>Status</td>
 						<td>Rasio</td>
-						<td>Status</td>
+						<td>Ket.</td>
 						<td>Sisa Data</td>
 						<td>Aksi</td>
 						<td>Solusi</td>

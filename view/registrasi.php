@@ -37,10 +37,10 @@
 				</div>
 
 				<div>
-					<input class="<?=$classpassword ?>" name="password" type="password" placeholder="input your password"><?php if(isset($_SESSION['regis_error']['error_pass'])){ ?><img class="true-check" src="<?=BASE_URL?>/assets/icons/<?=$iconpass?>.svg" alt=""> <?php } ?>
+					<input class="<?=$classpassword ?>" name="password" type="password" placeholder="input  password"><?php if(isset($_SESSION['regis_error']['error_pass'])){ ?><img class="true-check" src="<?=BASE_URL?>/assets/icons/<?=$iconpass?>.svg" alt=""> <?php } ?>
 				</div>
 				<div>
-					<input class="<?=$classpassword?>" name="konfirmasi_password" type="password" placeholder="konfirmasi password"><?php if(isset($_SESSION['regis_error']['error_pass'])){ ?><img class="true-check" src="<?=BASE_URL?>/assets/icons/<?=$iconpass?>.svg" alt=""> <?php } ?>
+					<input class="<?=$classpassword?>" name="konfirmasi_password" type="password" placeholder="confirm  password"><?php if(isset($_SESSION['regis_error']['error_pass'])){ ?><img class="true-check" src="<?=BASE_URL?>/assets/icons/<?=$iconpass?>.svg" alt=""> <?php } ?>
 					<?php if(isset($_SESSION['regis_error']['error_pass'])){?>
 						<p class="error"><?= $_SESSION['regis_error']['error_pass'] ?></p>
 					<?php  }?>
